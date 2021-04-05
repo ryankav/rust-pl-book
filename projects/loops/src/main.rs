@@ -1,17 +1,13 @@
 fn main()
 {
-	let mut counter = 0;
+	let mut number = 10;
 
-	let result = loop
+	while number > 0
 	{
-		counter += 1;
+		println!("{}!", number);
 
-		if counter == 10 
-		{
-			break counter*2
-		}
-	};
-
-	println!("The result is  {}", result);
+		number -= 1;
+	}
+	println!("Liftoff!");
 }
 
