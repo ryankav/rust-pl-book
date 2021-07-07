@@ -1,11 +1,21 @@
-fn main() {
-    let mut s = String::from("hello");
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
 
-    change(&mut s);
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
 }
 
-fn change(some_string: &mut String) {
-    some_string.push_str(", world");
-		println!("{}", some_string);
+fn main() {
+    let my_string = String::from("hello world");
+
+    // first_word works on slices of `String`s
+    let word = first_word(&my_string[..]);
+
+		println!("{}", word);
 }
 
